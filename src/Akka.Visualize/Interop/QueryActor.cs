@@ -106,28 +106,32 @@ namespace Akka.Visualize.Interop
 				config.ToString();
 			}
 
-			var router = actor as RoutedActorRef;
-			if (router != null)
+			var repointable = actor as RepointableActorRef;
+			if (repointable != null)
 			{
-				var routerInfo = new RouterInfo();
-				node.Router = routerInfo;
+				var fa = FieldAccessorCache.Get(repointable.GetType(), "Props");
+				var props = (Props)fa.Get(repointable);
 
-				var fa = FieldAccessorCache.Get(router.GetType(), "_routerProps");
-				var routerProps = fa.Get(router) as Props;
-				var pool = routerProps.RouterConfig as Pool;
+				var pool = props.RouterConfig as Pool;
 				if (pool != null)
 				{
-					routerInfo.Pool = true;
-					routerInfo.Type = pool.GetType().Name.UpTo("Pool");
-					routerInfo.NrOfInstances = pool.NrOfInstances;
+				    node.Router = new RouterInfo
+				    {
+				        Pool = true,
+				        Type = pool.GetType().Name.UpTo("Pool"),
+				        NrOfInstances = pool.NrOfInstances
+				    };
 				}
 				else
 				{
-					var group = routerProps.RouterConfig as Group;
+					var group = props.RouterConfig as Group;
 					if (group != null)
 					{
-						routerInfo.Pool = false;
-						routerInfo.Type = group.GetType().Name.UpTo("Group");
+                        node.Router = new RouterInfo
+                        {
+                            Pool = true,
+                            Type = group.GetType().Name.UpTo("Group"),
+                        };
                     }
 				}
 			}

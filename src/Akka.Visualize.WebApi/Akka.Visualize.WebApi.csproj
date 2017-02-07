@@ -30,8 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.2-beta2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -90,9 +90,6 @@
     <EmbeddedResource Include="UI\fa2772327f55d8198301fdb8bcfc8158.woff" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="UI\index.html" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="UI\02d321edc6e03aea1675001899d8f479.png" />
     <EmbeddedResource Include="UI\1.bundle.js" />
     <EmbeddedResource Include="UI\260c9c6535065674bb5e59a73f894abb.png" />
@@ -102,6 +99,7 @@
     <EmbeddedResource Include="UI\d5267b8db2498e44bd567bd12e07576b.png" />
     <EmbeddedResource Include="UI\d5422321c4f6feed4081891051f9a6b2.png" />
     <EmbeddedResource Include="UI\dd0baa69a69937600dc3bf035f3873c4.png" />
+    <EmbeddedResource Include="UI\index.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
