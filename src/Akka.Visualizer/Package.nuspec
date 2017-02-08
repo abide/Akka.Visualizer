@@ -4,7 +4,7 @@
 		<id>Akka.Visualizer</id>
 		<version>1.1.0</version>
 		<title>Akka.Visualizer</title>
-		<authors>Corneliu I. Tusnea (corneliu@acorns.com.au); Simon Petty (simon.petty@abide-financial.com)</authors>
+		<authors>Simon Petty (simon.petty@abide-financial.com)</authors>
 		<owners></owners>
 		<description>
 			A web based visualizer for your Akka ActorSystem.
